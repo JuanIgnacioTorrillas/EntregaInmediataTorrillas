@@ -1,0 +1,30 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+
+{% block titulo %}
+<h1 class="mb-5">¡Resultados de busqueda!</h1>
+{% endblock %}
+
+
+
+{% block contenido %}
+
+{% if Pizzas %}
+<ul>
+    {% for pizza in Pizzas %}
+        <li>{{pizza.gusto}}</li>
+        <li>{{pizza.porciones}}</li>
+        <li>{{pizza.estilo}}</li>
+        <br>
+    {% endfor %}
+</ul>
+
+{% else %}
+
+<p> ¡No hay pizza con ese gusto!</p>
+
+{% endif %}
+
+{% endblock %}

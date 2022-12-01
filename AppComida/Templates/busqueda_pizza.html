@@ -1,0 +1,22 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+<h1 class="mb-5">¡Bienvenido a la busqueda de datos!</h1>
+{% endblock %}
+
+{% block contenido %}
+<h1>Para ayudarnos a testear, llene los datos de la pizza que desea buscar:</h1>
+
+<form action="{% url 'buscar' %}" method="GET"> 
+
+    <input type="text" name="gusto" id="gusto">
+
+    <input type="submit" value="buscar">
+
+
+</form>
+
+{{ mensaje }}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+<h1 class="mb-5">¿Listo para Agregar tu Milanesa?</h1>
+{% endblock %}
+
+{% block contenido %}
+
+<h1>Llena con tus preferencias:</h1>
+
+
+<form action="{% url 'milanesa'%}" method="post"> {% csrf_token %}
+
+ <table>
+
+
+    
+    {{ form.as_table }}
+
+
+
+</table>
+
+<input type="submit" value="Enviar Milanesa">
+</form>
+
+
+{{ mensaje }}
+{% endblock %}

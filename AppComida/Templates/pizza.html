@@ -1,0 +1,27 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+<h1 class="mb-5">¿Listo para Agregar tus Pizzas?</h1>
+{% endblock %}
+
+{% block contenido %}
+
+<h1>FORMULARIO:</h1>
+
+
+<form action="{% url 'pizza'%}" method="post"> {% csrf_token %}
+
+ <table>
+
+    {{ form.as_table }}
+
+</table>
+
+<input type="submit" value="Enviar Pizza">
+</form>
+
+
+{{ mensaje }}
+{% endblock %}
