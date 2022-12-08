@@ -9,8 +9,13 @@ def inicio(request):
 def pizza(request): #Formulario, Agregar a BD
 
     if request.method=="POST":
-        form=PizzaForm(request.POST)
+        form=PizzaForm(request.POST) #request,data=request.POST
         if form.is_valid():
+            
+            #gust=form.cleaned_data_get("gusto")
+            #porc=form.cleaned_data_get("porciones")
+            #esti=form.cleaned_data_get("estilo")
+            #form.save()
             
             informacion=form.cleaned_data
             
@@ -18,6 +23,9 @@ def pizza(request): #Formulario, Agregar a BD
             pizza.save()
             
             return render (request, "inicio.html", {"mensaje": "Tu Pizza fue Guardada!!!"})
+        else:
+            return render (request, "pizza.html", {"form":formulario})
+        
     else:
         formulario=PizzaForm()
         
@@ -66,7 +74,7 @@ def busquedaPizza(request):
     
 def buscar(request):
     
-    if request.GET.get("gusto"):
+    if request.GET.get("gusto"): #o tambien if "gusto" in request.GET
 
         gusto=request.GET["gusto"]
         
